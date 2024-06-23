@@ -1,5 +1,5 @@
 # Replace this with your own github.com/<username>/<repository>
-GO_MODULE := github.com/MatatjahuP/ud-go-grcp-proto
+GO_MODULE := github.com/MatatjahuP/ud-go-grpc-proto
 
 .PHONY: clean
 clean:
