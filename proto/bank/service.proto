@@ -8,6 +8,7 @@ import "proto/bank/type/transaction.proto";
 
 option go_package  = "github.com/MatatjahuP/ud-go-grpc-proto/protogen/go/bank";
 
+
 service BankService {
   rpc GetCurrentBalance(CurrentBalanceRequest) 
     returns (CurrentBalanceResponse) {}
