@@ -22,5 +22,5 @@ service ResiliencyService {
   rpc ClientStreamingResiliency(stream ResiliencyRequest) 
     returns (ResiliencyResponse) {}
   rpc BiDirectionalResiliency(stream ResiliencyRequest) 
-    returns (stream ResiliencyRequest) {}
+    returns (stream ResiliencyResponse) {}
 }
