@@ -133,7 +133,7 @@ func (c *resiliencyServiceClient) BiDirectionalResiliency(ctx context.Context, o
 
 type ResiliencyService_BiDirectionalResiliencyClient interface {
 	Send(*ResiliencyRequest) error
-	Recv() (*ResiliencyRequest, error)
+	Recv() (*ResiliencyResponse, error)
 	grpc.ClientStream
 }
 
@@ -145,8 +145,8 @@ func (x *resiliencyServiceBiDirectionalResiliencyClient) Send(m *ResiliencyReque
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *resiliencyServiceBiDirectionalResiliencyClient) Recv() (*ResiliencyRequest, error) {
-	m := new(ResiliencyRequest)
+func (x *resiliencyServiceBiDirectionalResiliencyClient) Recv() (*ResiliencyResponse, error) {
+	m := new(ResiliencyResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -263,7 +263,7 @@ func _ResiliencyService_BiDirectionalResiliency_Handler(srv interface{}, stream 
 }
 
 type ResiliencyService_BiDirectionalResiliencyServer interface {
-	Send(*ResiliencyRequest) error
+	Send(*ResiliencyResponse) error
 	Recv() (*ResiliencyRequest, error)
 	grpc.ServerStream
 }
@@ -272,7 +272,7 @@ type resiliencyServiceBiDirectionalResiliencyServer struct {
 	grpc.ServerStream
 }
 
-func (x *resiliencyServiceBiDirectionalResiliencyServer) Send(m *ResiliencyRequest) error {
+func (x *resiliencyServiceBiDirectionalResiliencyServer) Send(m *ResiliencyResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
